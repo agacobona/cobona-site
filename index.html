@@ -139,32 +139,6 @@
         .social-icon:hover {
             transform: translateY(-3px);
         }
-
-        /* Expired event styling */
-        .event-card.expired {
-            opacity: 0.6;
-            filter: grayscale(30%);
-        }
-
-        .event-card.expired .bg-brand-green {
-            background-color: #9ca3af !important;
-        }
-
-        .event-card.expired .group {
-            cursor: default;
-        }
-
-        .event-card.expired .group:hover {
-            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-        }
-
-        .expired-label {
-            display: none;
-        }
-
-        .event-card.expired .expired-label {
-            display: block;
-        }
     </style>
 </head>
 <body class="font-sans antialiased text-gray-800 bg-brand-offwhite">
@@ -177,7 +151,7 @@
                     <img src="images/cobona-logo.png" alt="Cobona" class="h-8 brightness-0 invert">
                 </a>
                 <div class="hidden md:flex items-center gap-8">
-                    <!-- <a href="#events" class="text-white/90 hover:text-white transition-colors text-sm tracking-wide">Wydarzenia</a> -->
+                    <a href="#events" class="text-white/90 hover:text-white transition-colors text-sm tracking-wide">Wydarzenia</a>
                     <a href="#about" class="text-white/90 hover:text-white transition-colors text-sm tracking-wide">O COBONA</a>
                     <a href="#me" class="text-white/90 hover:text-white transition-colors text-sm tracking-wide">O mnie</a>
                     <a href="#contact" class="text-white/90 hover:text-white transition-colors text-sm tracking-wide">Kontakt</a>
@@ -226,209 +200,107 @@
         </div>
     </section>
 
-    <!-- Upcoming Events Section - TEMPORARILY HIDDEN -->
-    <section id="events" class="py-20 md:py-28 bg-white" style="display:none">
-        <div class="max-w-7xl mx-auto px-6">
-            <!-- Section Header -->
-            <div class="text-center mb-16 reveal">
-                <span class="inline-block text-brand-green text-sm font-medium tracking-widest uppercase mb-4">Dołącz do nas</span>
-                <h2 class="font-display text-4xl md:text-5xl font-semibold text-gray-900 mb-6">
-                    Nadchodzące wydarzenia
-                </h2>
-                <p class="text-lg text-gray-500 max-w-2xl mx-auto">
-                    Odkryj nasze warsztaty i zajęcia. Każde spotkanie to okazja do połączenia się z ciałem, innymi i naturą.
-                </p>
+    <!-- Events Section: regular classes, Rok w lesie, one-off events -->
+    <section id="events" class="py-14 md:py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-5 md:px-6">
+            <div class="text-center mb-10 md:mb-14 reveal">
+                <span class="inline-block text-brand-green text-xs md:text-sm font-medium tracking-widest uppercase mb-3">Dołącz</span>
+                <h2 class="font-display text-3xl md:text-5xl font-semibold text-gray-900 mb-4">Spotkajmy się w ruchu</h2>
+                <p class="text-base md:text-lg text-gray-500 max-w-2xl mx-auto">Zajęcia co tydzień w Warszawie, leśny cykl raz w miesiącu i warsztaty w różnych miejscach.</p>
             </div>
 
-            <!-- Events Slider Container -->
-            <div class="relative">
-                <!-- Navigation Arrows -->
-                <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 z-10 w-12 h-12 rounded-full bg-white shadow-lg border border-gray-100 flex items-center justify-center text-brand-green hover:bg-brand-offwhite hover:text-forest-950 transition-all opacity-0 pointer-events-none" aria-label="Previous">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                    </svg>
-                </button>
-                <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 z-10 w-12 h-12 rounded-full bg-white shadow-lg border border-gray-100 flex items-center justify-center text-brand-green hover:bg-brand-offwhite hover:text-forest-950 transition-all" aria-label="Next">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </button>
-
-                <!-- Slider Track -->
-                <div class="overflow-hidden">
-                    <div id="eventsSlider" class="flex gap-6 transition-transform duration-500 ease-out">
-
-                        <!-- Event Card 1 (EXPIRED - remove 'expired' class to reactivate) -->
-                        <div class="event-card expired flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                            <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
-                                <div class="relative img-zoom">
-                                    <img src="images/pic01.jpg" alt="Ruch i Oddech" class="w-full h-56 object-cover">
-                                    <span class="expired-label absolute top-4 left-4 bg-gray-600 text-white text-xs font-medium px-3 py-1 rounded-full shadow-lg z-10">Zakończone</span>
-                                    <div class="absolute top-4 right-4 bg-brand-green text-white rounded-xl px-3 py-2 text-center shadow-lg">
-                                        <span class="block text-xs font-medium uppercase tracking-wide">Mar</span>
-                                        <span class="block text-2xl font-bold leading-none">15</span>
-                                    </div>
-                                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                </div>
-                                <div class="p-6">
-                                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-3 group-hover:text-brand-green transition-colors">
-                                        Ruch i Oddech - warsztat poranny
-                                    </h3>
-                                    <div class="flex items-start gap-2 text-gray-500">
-                                        <svg class="w-5 h-5 text-brand-coral flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                        </svg>
-                                        <span class="text-sm">Park Miejski, Strefa Ciszy, Kraków</span>
-                                    </div>
-                                    <a href="index.html" class="inline-flex items-center gap-1.5 mt-4 text-brand-green hover:text-forest-950 font-medium text-sm transition-colors group/link">
-                                        <span>Dowiedz się więcej</span>
-                                        <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Event Card 2 -->
-                        <div class="event-card flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                            <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
-                                <div class="relative img-zoom">
-                                    <img src="images/pic02.jpg" alt="Taniec w grupie" class="w-full h-56 object-cover">
-                                    <span class="expired-label absolute top-4 left-4 bg-gray-600 text-white text-xs font-medium px-3 py-1 rounded-full shadow-lg z-10">Zakończone</span>
-                                    <div class="absolute top-4 right-4 bg-brand-green text-white rounded-xl px-3 py-2 text-center shadow-lg">
-                                        <span class="block text-xs font-medium uppercase tracking-wide">Mar</span>
-                                        <span class="block text-2xl font-bold leading-none">22</span>
-                                    </div>
-                                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                </div>
-                                <div class="p-6">
-                                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-3 group-hover:text-brand-green transition-colors">
-                                        Wspólny rytm - taniec w grupie
-                                    </h3>
-                                    <div class="flex items-start gap-2 text-gray-500">
-                                        <svg class="w-5 h-5 text-brand-coral flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                        </svg>
-                                        <span class="text-sm">Centrum Kultury, Sala Taneczna, Kraków</span>
-                                    </div>
-                                    <a href="index.html" class="inline-flex items-center gap-1.5 mt-4 text-brand-green hover:text-forest-950 font-medium text-sm transition-colors group/link">
-                                        <span>Dowiedz się więcej</span>
-                                        <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Event Card 3 -->
-                        <div class="event-card flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                            <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
-                                <div class="relative img-zoom">
-                                    <img src="images/pic03.jpg" alt="Leśny spacer" class="w-full h-56 object-cover">
-                                    <span class="expired-label absolute top-4 left-4 bg-gray-600 text-white text-xs font-medium px-3 py-1 rounded-full shadow-lg z-10">Zakończone</span>
-                                    <div class="absolute top-4 right-4 bg-brand-green text-white rounded-xl px-3 py-2 text-center shadow-lg">
-                                        <span class="block text-xs font-medium uppercase tracking-wide">Mar</span>
-                                        <span class="block text-2xl font-bold leading-none">29</span>
-                                    </div>
-                                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                </div>
-                                <div class="p-6">
-                                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-3 group-hover:text-brand-green transition-colors">
-                                        Leśny spacer uważności
-                                    </h3>
-                                    <div class="flex items-start gap-2 text-gray-500">
-                                        <svg class="w-5 h-5 text-brand-coral flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                        </svg>
-                                        <span class="text-sm">Las Wolski, wejście północne, Kraków</span>
-                                    </div>
-                                    <a href="index.html" class="inline-flex items-center gap-1.5 mt-4 text-brand-green hover:text-forest-950 font-medium text-sm transition-colors group/link">
-                                        <span>Dowiedz się więcej</span>
-                                        <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Event Card 4 -->
-                        <div class="event-card flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                            <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
-                                <div class="relative img-zoom">
-                                    <img src="images/banner.jpg" alt="Medytacja w ruchu" class="w-full h-56 object-cover">
-                                    <span class="expired-label absolute top-4 left-4 bg-gray-600 text-white text-xs font-medium px-3 py-1 rounded-full shadow-lg z-10">Zakończone</span>
-                                    <div class="absolute top-4 right-4 bg-brand-green text-white rounded-xl px-3 py-2 text-center shadow-lg">
-                                        <span class="block text-xs font-medium uppercase tracking-wide">Kwi</span>
-                                        <span class="block text-2xl font-bold leading-none">05</span>
-                                    </div>
-                                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                </div>
-                                <div class="p-6">
-                                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-3 group-hover:text-brand-green transition-colors">
-                                        Medytacja w ruchu - weekend
-                                    </h3>
-                                    <div class="flex items-start gap-2 text-gray-500">
-                                        <svg class="w-5 h-5 text-brand-coral flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                        </svg>
-                                        <span class="text-sm">Ośrodek Rekolekcyjny, Zakopane</span>
-                                    </div>
-                                    <a href="index.html" class="inline-flex items-center gap-1.5 mt-4 text-brand-green hover:text-forest-950 font-medium text-sm transition-colors group/link">
-                                        <span>Dowiedz się więcej</span>
-                                        <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Event Card 5 -->
-                        <div class="event-card flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                            <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
-                                <div class="relative img-zoom">
-                                    <img src="images/agnieszka.jpg" alt="Spotkanie otwarte" class="w-full h-56 object-cover">
-                                    <span class="expired-label absolute top-4 left-4 bg-gray-600 text-white text-xs font-medium px-3 py-1 rounded-full shadow-lg z-10">Zakończone</span>
-                                    <div class="absolute top-4 right-4 bg-brand-green text-white rounded-xl px-3 py-2 text-center shadow-lg">
-                                        <span class="block text-xs font-medium uppercase tracking-wide">Kwi</span>
-                                        <span class="block text-2xl font-bold leading-none">12</span>
-                                    </div>
-                                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                </div>
-                                <div class="p-6">
-                                    <h3 class="font-display text-xl font-semibold text-gray-900 mb-3 group-hover:text-brand-green transition-colors">
-                                        Spotkanie otwarte - poznaj COBONA
-                                    </h3>
-                                    <div class="flex items-start gap-2 text-gray-500">
-                                        <svg class="w-5 h-5 text-brand-coral flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                        </svg>
-                                        <span class="text-sm">Kawiarnia Natura, ul. Zielona 15, Kraków</span>
-                                    </div>
-                                    <a href="index.html" class="inline-flex items-center gap-1.5 mt-4 text-brand-green hover:text-forest-950 font-medium text-sm transition-colors group/link">
-                                        <span>Dowiedz się więcej</span>
-                                        <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
+            <!-- Weekly classes -->
+            <h3 class="text-lg md:text-xl font-semibold text-brand-brown mb-1 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-brand-coral"></span>Zajęcia co tydzień</h3>
+            <p class="text-xl md:text-2xl font-semibold text-brand-green mt-2 mb-5">COBONA – dobrostan przez taniec i ruch</p>
+            <div class="grid gap-3 md:grid-cols-3 md:gap-5 mb-12">
+                <div class="flex md:flex-col gap-4 bg-brand-offwhite rounded-2xl p-4 md:p-6">
+                    <div class="flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-xl bg-brand-green text-white flex flex-col items-center justify-center"><span class="text-[10px] uppercase tracking-wider">wtorki</span><span class="text-lg font-bold leading-none">WT</span></div>
+                    <div class="min-w-0 flex-1 flex flex-col">
+                        <p class="font-semibold text-gray-900">Praga Północ</p>
+                        <p class="text-sm text-gray-600">18:45–20:15</p>
+                        <p class="text-sm text-gray-500">Dom Kultury Praga<br>ul. Dąbrowszczaków 2<br>sala 45, IV piętro</p>
+                        <span class="self-start mt-2 text-xs font-medium bg-white text-brand-brown px-2.5 py-1 rounded-full">tylko dla kobiet</span>
+                        <a href="https://www.strefazajec.pl/course/view/id/94364" target="_blank" rel="noopener" class="self-start md:mt-auto mt-3 md:pt-4 text-sm font-medium text-brand-green underline underline-offset-4">Zapisz się</a>
                     </div>
                 </div>
+                <div class="flex md:flex-col gap-4 bg-brand-offwhite rounded-2xl p-4 md:p-6">
+                    <div class="flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-xl bg-brand-green text-white flex flex-col items-center justify-center"><span class="text-[10px] uppercase tracking-wider">środy</span><span class="text-lg font-bold leading-none">ŚR</span></div>
+                    <div class="min-w-0 flex-1 flex flex-col">
+                        <p class="font-semibold text-gray-900">Żoliborz</p>
+                        <p class="text-sm text-gray-600">18:15–19:45</p>
+                        <p class="text-sm text-gray-500">Żoliborski Dom Kultury<br>Fort Sokolnickiego<br>ul. Stefana Czarnieckiego 51<br>sala taneczna</p>
+                        <span class="self-start mt-2 text-xs font-medium bg-white text-brand-brown px-2.5 py-1 rounded-full">dla wszystkich</span>
+                        <a href="https://www.strefazajec.pl/course/view/id/92722" target="_blank" rel="noopener" class="self-start md:mt-auto mt-3 md:pt-4 text-sm font-medium text-brand-green underline underline-offset-4">Zapisz się</a>
+                    </div>
+                </div>
+                <div class="flex md:flex-col gap-4 bg-brand-offwhite rounded-2xl p-4 md:p-6">
+                    <div class="flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-xl bg-brand-green text-white flex flex-col items-center justify-center"><span class="text-[10px] uppercase tracking-wider">piątki</span><span class="text-lg font-bold leading-none">PT</span></div>
+                    <div class="min-w-0 flex-1 flex flex-col">
+                        <p class="font-semibold text-gray-900">Śródmieście</p>
+                        <p class="text-sm text-gray-600">17:15–18:45</p>
+                        <p class="text-sm text-gray-500">Dom Kultury Śródmieście, Pracownie Artystyczne<br>ul. Foksal 11<br>IV piętro</p>
+                        <span class="self-start mt-2 text-xs font-medium bg-brand-coral/15 text-brand-brown px-2.5 py-1 rounded-full">grupa pełna</span>
+                        <p class="md:mt-auto mt-3 md:pt-4 text-sm text-gray-600">Chcesz dołączyć, gdy zwolni się miejsce? <a href="mailto:agnieszka@cobona.org?subject=Zaj%C4%99cia%20COBONA%20%C5%9Ar%C3%B3dmie%C5%9Bcie%20%E2%80%93%20wolne%20miejsce" class="font-medium text-brand-green underline underline-offset-4">Napisz do mnie</a></p>
+                    </div>
+                </div>
+            </div>
 
-                <!-- Dots Indicator -->
-                <div id="dotsContainer" class="flex justify-center gap-2 mt-8">
-                    <!-- Dots will be generated by JavaScript -->
+            <div class="grid gap-10 md:grid-cols-2 md:gap-8">
+                <!-- Rok w lesie -->
+                <div class="flex flex-col">
+                    <h3 class="text-lg md:text-xl font-semibold text-brand-brown mb-4 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-brand-coral"></span>Rok w lesie</h3>
+                    <div class="flex-1 rounded-2xl bg-forest-900 text-white p-5 md:p-7">
+                        <p class="text-white/90 mb-2">Bezpłatny roczny cykl o uważności, kontakcie z naturą i budowaniu z nią relacji. Spotykamy się raz w miesiącu, w sobotę.</p>
+                        <p class="text-sm text-white/70 mb-5">Warszawa Wawer (Międzylesie)</p>
+                        <p class="text-xs uppercase tracking-widest text-white/60 mb-2">Najbliższe spotkania · 11:00–12:30</p>
+                        <!-- All dates of the cycle; the script below shows only the next 3 -->
+                        <div id="forestDates" class="flex flex-wrap gap-2 mb-6">
+                            <span data-date="2026-11-14" class="bg-white/15 text-sm px-3 py-1.5 rounded-full">sob 14.11</span>
+                            <span data-date="2026-12-19" class="bg-white/15 text-sm px-3 py-1.5 rounded-full">sob 19.12</span>
+                            <span data-date="2027-01-09" class="bg-white/15 text-sm px-3 py-1.5 rounded-full">sob 9.01</span>
+                            <span data-date="2027-02-13" class="bg-white/15 text-sm px-3 py-1.5 rounded-full">sob 13.02</span>
+                            <span data-date="2027-03-13" class="bg-white/15 text-sm px-3 py-1.5 rounded-full">sob 13.03</span>
+                            <span data-date="2027-04-17" class="bg-white/15 text-sm px-3 py-1.5 rounded-full">sob 17.04</span>
+                            <span data-date="2027-05-15" class="bg-white/15 text-sm px-3 py-1.5 rounded-full">sob 15.05</span>
+                            <span data-date="2027-06-12" class="bg-white/15 text-sm px-3 py-1.5 rounded-full">sob 12.06</span>
+                            <span data-date="2027-07-10" class="bg-white/15 text-sm px-3 py-1.5 rounded-full">sob 10.07</span>
+                            <span data-date="2027-08-21" class="bg-white/15 text-sm px-3 py-1.5 rounded-full">sob 21.08</span>
+                            <span id="forestDatesEmpty" class="hidden text-sm text-white/80">Kolejne terminy wkrótce</span>
+                        </div>
+                        <a href="https://forms.gle/urt8979hTdtUEAwc8" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-brand-coral text-white font-medium text-sm px-5 py-3 rounded-full">Dołącz do cyklu →</a>
+                    </div>
+                </div>
+                <!-- One-off events -->
+                <div class="flex flex-col">
+                    <h3 class="text-lg md:text-xl font-semibold text-brand-brown mb-4 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-brand-coral"></span>Wydarzenia</h3>
+                    <!-- data-until: last day the item is shown (it disappears the next day) -->
+                    <div id="eventsList" class="space-y-4">
+                        <div data-until="2026-11-07" class="rounded-2xl border border-gray-200 p-5 md:p-6 flex gap-4">
+                            <div class="flex-shrink-0 w-14 h-16 rounded-xl bg-brand-coral text-white flex flex-col items-center justify-center"><span class="text-[10px] uppercase tracking-wider">lis</span><span class="text-xl font-bold leading-none">7</span></div>
+                            <div class="min-w-0">
+                                <p class="text-xs uppercase tracking-widest text-brand-green mb-1">Konferencja · warsztat</p>
+                                <p class="font-semibold text-gray-900 text-lg leading-snug mb-1">„Szkoła, w której można oddychać”</p>
+                                <p class="text-sm text-gray-600 mb-2">Warsztat COBONA na konferencji Fundacji Kiedy Cichnie Dzwonek.</p>
+                                <p class="text-sm text-gray-700 font-medium">7 listopada, sobota, 14:15–16:45</p>
+                                <p class="text-sm text-gray-500">Żoliborz<br>ul. Elbląska 51</p>
+                                <a href="https://kiedycichniedzwonek.pl/events/szkola-w-ktorej-mozna-oddychac-konferencja-o-dobrostanie-relacjach-i-wspierajacej-kulturze-pracy-1/#mpwem_registration" target="_blank" rel="noopener" class="inline-block mt-3 text-sm font-medium text-brand-green underline underline-offset-4">Bilety na konferencję</a>
+                            </div>
+                        </div>
+                        <div data-until="2026-12-12" class="rounded-2xl border border-gray-200 p-5 md:p-6 flex gap-4">
+                            <div data-until="2026-11-21" class="flex-shrink-0 w-14 h-16 rounded-xl bg-brand-coral text-white flex flex-col items-center justify-center"><span class="text-[10px] uppercase tracking-wider">lis</span><span class="text-xl font-bold leading-none">21</span></div>
+                            <div data-from="2026-11-22" class="flex-shrink-0 w-14 h-16 rounded-xl bg-brand-coral text-white flex flex-col items-center justify-center"><span class="text-[10px] uppercase tracking-wider">gru</span><span class="text-xl font-bold leading-none">12</span></div>
+                            <div class="min-w-0">
+                                <p class="text-xs uppercase tracking-widest text-brand-green mb-1">Warsztat</p>
+                                <p class="font-semibold text-gray-900 text-lg leading-snug mb-1">Warsztaty COBONA w Centrum Promocji Kultury</p>
+                                <p data-until="2026-11-21" class="text-sm text-gray-700 font-medium">21 listopada i 12 grudnia, soboty, 10:30–12:00</p>
+                                <p data-from="2026-11-22" class="text-sm text-gray-700 font-medium">12 grudnia, sobota, 10:30–12:00</p>
+                                <p class="text-sm text-gray-500">Praga-Południe<br>ul. Podskarbińska 2</p>
+                                <span class="inline-block mt-3 text-xs font-medium bg-brand-coral/15 text-brand-brown px-2.5 py-1 rounded-full">zapisy wkrótce</span>
+                                <a href="mailto:agnieszka@cobona.org?subject=Powiadomienie%20o%20zapisach%20%E2%80%93%20warsztaty%20COBONA%20w%20CPK&amp;body=Cze%C5%9B%C4%87!%20Daj%20mi%20zna%C4%87%2C%20prosz%C4%99%2C%20gdy%20rusz%C4%85%20zapisy%20na%20warsztaty%20COBONA%20w%20Centrum%20Promocji%20Kultury%20(21%20listopada%20i%2012%20grudnia)." class="block mt-3 text-sm font-medium text-brand-green underline underline-offset-4">Powiadom mnie o zapisach</a>
+                            </div>
+                        </div>
+                        <p id="eventsEmpty" class="hidden text-gray-500">Nowe wydarzenia wkrótce.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -676,118 +548,30 @@
             });
         });
 
-        // Events Slider
-        const slider = document.getElementById('eventsSlider');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const dotsContainer = document.getElementById('dotsContainer');
-        const cards = document.querySelectorAll('.event-card');
+        // Events: hide past items so the page never shows outdated dates
+        const now = new Date();
+        const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
 
-        let currentIndex = 0;
-        let cardsPerView = 3;
-        let maxIndex = 0;
-
-        function updateCardsPerView() {
-            if (window.innerWidth < 640) {
-                cardsPerView = 1;
-            } else if (window.innerWidth < 1024) {
-                cardsPerView = 2;
-            } else {
-                cardsPerView = 3;
-            }
-            maxIndex = Math.max(0, cards.length - cardsPerView);
-            if (currentIndex > maxIndex) {
-                currentIndex = maxIndex;
-            }
-            updateSlider();
-            updateDots();
-        }
-
-        function updateSlider() {
-            const card = cards[0];
-            const cardWidth = card.offsetWidth;
-            const gap = 24; // 6 * 4 = 24px gap
-            const offset = currentIndex * (cardWidth + gap);
-            slider.style.transform = `translateX(-${offset}px)`;
-
-            // Update button visibility
-            prevBtn.style.opacity = currentIndex === 0 ? '0' : '1';
-            prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
-            nextBtn.style.opacity = currentIndex >= maxIndex ? '0' : '1';
-            nextBtn.style.pointerEvents = currentIndex >= maxIndex ? 'none' : 'auto';
-
-            // Update dots
-            document.querySelectorAll('.slider-dot').forEach((dot, index) => {
-                if (index === currentIndex) {
-                    dot.classList.add('bg-brand-green');
-                    dot.classList.remove('bg-gray-300');
-                } else {
-                    dot.classList.remove('bg-brand-green');
-                    dot.classList.add('bg-gray-300');
-                }
-            });
-        }
-
-        function updateDots() {
-            dotsContainer.innerHTML = '';
-            const numDots = maxIndex + 1;
-            for (let i = 0; i < numDots; i++) {
-                const dot = document.createElement('button');
-                dot.className = `slider-dot w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === currentIndex ? 'bg-brand-green w-8' : 'bg-gray-300 hover:bg-gray-400'}`;
-                dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
-                dot.addEventListener('click', () => {
-                    currentIndex = i;
-                    updateSlider();
-                });
-                dotsContainer.appendChild(dot);
-            }
-        }
-
-        prevBtn.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateSlider();
-            }
+        document.querySelectorAll('[data-until]').forEach(el => {
+            if (today > el.dataset.until) el.remove();
         });
-
-        nextBtn.addEventListener('click', () => {
-            if (currentIndex < maxIndex) {
-                currentIndex++;
-                updateSlider();
-            }
+        document.querySelectorAll('[data-from]').forEach(el => {
+            if (today < el.dataset.from) el.remove();
         });
-
-        // Touch/swipe support
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        slider.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        slider.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, { passive: true });
-
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
-
-            if (Math.abs(diff) > swipeThreshold) {
-                if (diff > 0 && currentIndex < maxIndex) {
-                    currentIndex++;
-                } else if (diff < 0 && currentIndex > 0) {
-                    currentIndex--;
-                }
-                updateSlider();
-            }
+        if (!document.querySelector('#eventsList [data-until]')) {
+            document.getElementById('eventsEmpty').classList.remove('hidden');
         }
 
-        // Initialize
-        window.addEventListener('resize', updateCardsPerView);
-        window.addEventListener('load', updateCardsPerView);
-        updateCardsPerView();
+        // Rok w lesie: show the next 3 dates, highlight the nearest one
+        const forestDates = [...document.querySelectorAll('#forestDates [data-date]')];
+        const upcoming = forestDates.filter(el => el.dataset.date >= today);
+        forestDates.forEach(el => { if (!upcoming.slice(0, 3).includes(el)) el.remove(); });
+        if (upcoming.length) {
+            upcoming[0].classList.remove('bg-white/15');
+            upcoming[0].classList.add('bg-white', 'text-forest-900', 'font-semibold');
+        } else {
+            document.getElementById('forestDatesEmpty').classList.remove('hidden');
+        }
     </script>
 </body>
 </html>
