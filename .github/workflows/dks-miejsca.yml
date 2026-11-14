@@ -1,0 +1,31 @@
+# Sprawdza wolne miejsca w grupie DK Śródmieście (Strefa Zajęć)
+# i aktualizuje kartę na stronie. Codziennie o 3:00 i 15:00 czasu polskiego (zimą).
+name: DKŚ wolne miejsca
+
+on:
+  schedule:
+    - cron: "0 2,14 * * *"   # godziny w UTC = 3:00 i 15:00 CET (latem 4:00 i 16:00)
+  workflow_dispatch:          # pozwala uruchomić ręcznie na GitHubie
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/dks_miejsca.py
+      - name: Zapisz zmianę, jeśli jest
+        run: |
+          if git diff --quiet; then
+            echo "Bez zmian."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898732+github-actions[bot]@users.noreply.github.com"
+            git commit -am "Automat: aktualizacja wolnych miejsc DK Śródmieście"
+            git push
+          fi
