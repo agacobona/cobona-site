@@ -34,7 +34,6 @@
                     },
                     animation: {
                         'fade-up': 'fadeUp 0.8s ease-out forwards',
-                        'fade-in': 'fadeIn 1s ease-out forwards',
                         'float': 'float 6s ease-in-out infinite',
                     },
                     keyframes: {
@@ -78,6 +77,27 @@
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Nic nie wystaje na boki (na telefonie strona nie przesuwa się w lewo/prawo) */
+        html, body {
+            overflow-x: hidden;
+        }
+        @supports (overflow: clip) {
+            html, body { overflow-x: clip; }
+        }
+
+        /* Pojawianie się napisów na górze: ukryte od początku, żeby nie mrugały */
+        @keyframes heroFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in {
+            opacity: 0;
+            animation: heroFadeIn 1s ease-out both;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .animate-fade-in { opacity: 1; animation: none; }
         }
 
         .image-reveal {
