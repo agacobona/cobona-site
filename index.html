@@ -176,8 +176,23 @@
                     <a href="#me" class="text-white/90 hover:text-white transition-colors text-sm tracking-wide">O mnie</a>
                     <a href="#contact" class="text-white/90 hover:text-white transition-colors text-sm tracking-wide">Kontakt</a>
                 </div>
+                <!-- Telefon: przycisk z trzema kreskami -->
+                <button type="button" id="menuBtn" class="md:hidden -mr-2 p-2 text-white" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+                    <svg id="menuIconOpen" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+                    <svg id="menuIconClose" class="w-7 h-7 hidden" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                </button>
             </div>
         </nav>
+        <!-- Telefon: rozwijane menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-forest-950/95 backdrop-blur-md shadow-lg">
+            <div class="px-6 pb-6 pt-2 flex flex-col">
+                <a href="#events" class="mobile-link py-3 text-white text-lg border-b border-white/10">Wydarzenia</a>
+                <a href="/kalendarz/" id="menuAdvent" class="mobile-link hidden py-3 text-white text-lg border-b border-white/10">Kalendarz adwentowy</a>
+                <a href="#about" class="mobile-link py-3 text-white text-lg border-b border-white/10">O COBONA</a>
+                <a href="#me" class="mobile-link py-3 text-white text-lg border-b border-white/10">O mnie</a>
+                <a href="#contact" class="mobile-link py-3 text-white text-lg">Kontakt</a>
+            </div>
+        </div>
     </header>
 
     <!-- Hero Section -->
@@ -557,6 +572,18 @@
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
 
+        // Menu na telefonie: trzy kreski otwierają i zamykają listę
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        function setMenu(open) {
+            mobileMenu.classList.toggle('hidden', !open);
+            document.getElementById('menuIconOpen').classList.toggle('hidden', open);
+            document.getElementById('menuIconClose').classList.toggle('hidden', !open);
+            menuBtn.setAttribute('aria-expanded', open);
+        }
+        menuBtn.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
+        document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -602,6 +629,7 @@
         const ADVENT_SHOW_UNTIL = '2027-01-06';
         if (today >= ADVENT_SHOW_FROM && today <= ADVENT_SHOW_UNTIL) {
             document.getElementById('advent').classList.remove('hidden');
+            document.getElementById('menuAdvent').classList.remove('hidden');
         }
     </script>
 </body>
