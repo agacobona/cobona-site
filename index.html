@@ -172,6 +172,7 @@
                 </a>
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#events" class="text-white/90 hover:text-white transition-colors text-sm tracking-wide">Wydarzenia</a>
+                    <a href="/kalendarz/" id="navAdvent" class="hidden text-white/90 hover:text-white transition-colors text-sm tracking-wide">Kalendarz adwentowy</a>
                     <a href="#about" class="text-white/90 hover:text-white transition-colors text-sm tracking-wide">O COBONA</a>
                     <a href="#me" class="text-white/90 hover:text-white transition-colors text-sm tracking-wide">O mnie</a>
                     <a href="#contact" class="text-white/90 hover:text-white transition-colors text-sm tracking-wide">Kontakt</a>
@@ -630,6 +631,7 @@
         if (today >= ADVENT_SHOW_FROM && today <= ADVENT_SHOW_UNTIL) {
             document.getElementById('advent').classList.remove('hidden');
             document.getElementById('menuAdvent').classList.remove('hidden');
+            document.getElementById('navAdvent').classList.remove('hidden');
         }
     </script>
 </body>
