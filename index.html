@@ -315,51 +315,17 @@
         </div>
     </section>
 
-    <!-- Kalendarz adwentowy: widoczny od 20.11.2026 do 6.01.2027 (daty i filmiki w skrypcie na dole: ADVENT_...) -->
-    <section id="advent" class="hidden py-14 md:py-24 bg-brand-offwhite">
-        <div class="max-w-6xl mx-auto px-5 md:px-6">
-            <div class="text-center mb-10 md:mb-12">
-                <span class="inline-block text-brand-green text-xs md:text-sm font-medium tracking-widest uppercase mb-3">Grudzień z COBONA</span>
-                <h2 class="font-display text-3xl md:text-5xl font-semibold text-gray-900 mb-3">Kalendarz adwentowy COBONA</h2>
-                <p class="text-lg md:text-xl font-semibold text-brand-brown flex items-center justify-center gap-2"><span class="w-2 h-2 rounded-full bg-brand-coral"></span>24 praktyki ruchowe na 24 dni<span class="w-2 h-2 rounded-full bg-brand-coral"></span></p>
-                <p id="adventIntro" class="hidden text-gray-600 mt-4 max-w-2xl mx-auto">Jutro otworzy się kolejne okienko. Poprzednie dni są pod spodem – możesz do nich wracać.</p>
-            </div>
-
-            <!-- Po 24 grudnia: info o całym cyklu -->
-            <div id="adventDone" class="hidden rounded-2xl bg-forest-900 text-white p-6 md:p-10 mb-10">
-                <p class="text-white/90 text-base md:text-lg mb-4">Cały Kalendarz adwentowy COBONA jest już otwarty: 24 praktyki ruchowe COBONA, po 15 minut, dla ciała, oddechu i uważności. Wracaj do nich, kiedy chcesz – w domu, w swoim tempie.</p>
-                <p class="text-white/70 text-sm mb-6">Kliknij dowolne okienko poniżej albo obejrzyj wszystkie praktyki po kolei na YouTube.</p>
-                <a href="https://www.youtube.com/playlist?list=PLhnUf1U_7nGhiCrioJlIfQZuQ7CSXUFfY" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-brand-coral text-white font-medium text-sm px-5 py-3 rounded-full">Cała playlista na YouTube →</a>
-            </div>
-
-            <!-- Zapowiedź (przed 1 grudnia) -->
-            <div id="adventTeaser" class="hidden rounded-2xl bg-forest-900 text-white p-6 md:p-10 mb-10 gap-10 items-center">
+    <!-- Kalendarz adwentowy: karta z linkiem do cobona.org/kalendarz/ (cały kalendarz jest w kalendarz/index.html). Widoczna od ADVENT_SHOW_FROM do ADVENT_SHOW_UNTIL (skrypt na dole) -->
+    <section id="advent" class="hidden py-14 md:py-20 bg-brand-offwhite">
+        <div class="max-w-4xl mx-auto px-5 md:px-6">
+            <a href="/kalendarz/" class="block rounded-2xl bg-forest-900 text-white p-6 md:p-10 hover:bg-forest-950 transition-colors md:flex items-center gap-10">
                 <div class="flex-1">
-                    <p class="text-white/90 text-base md:text-lg mb-4">Od 1 grudnia codziennie otwiera się tu nowe okienko – praktyka ruchowa COBONA na ten dzień. 15 minut dla ciała, oddechu i uważności. W domu, w swoim tempie, bez oceniania.</p>
-                    <p class="text-white/70 text-sm">Zajrzyj tu każdego dnia albo zapisz sobie stronę. Wystarczy chwila i trochę miejsca wokół siebie.</p>
+                    <span class="inline-block text-white/70 text-xs md:text-sm font-medium tracking-widest uppercase mb-3">Grudzień z COBONA</span>
+                    <h2 class="font-display text-2xl md:text-4xl font-semibold mb-3">Kalendarz adwentowy COBONA</h2>
+                    <p class="text-white/90 text-base md:text-lg">24 praktyki ruchowe na 24 dni. Od 1 grudnia codziennie otwiera się nowe okienko – 15 minut dla ciała, oddechu i uważności.</p>
                 </div>
-                <div class="mt-8 md:mt-0 text-center flex-shrink-0">
-                    <p class="text-xs uppercase tracking-widest text-white/60 mb-2">Pierwsze okienko za</p>
-                    <p class="text-6xl md:text-7xl font-bold leading-none" id="adventCountdown"></p>
-                    <p class="text-white/80 mt-2" id="adventCountdownWord">dni</p>
-                </div>
-            </div>
-
-            <!-- Filmik dnia (od 1 grudnia) -->
-            <div id="adventPlayer" class="hidden mb-10 md:grid-cols-5 gap-8 items-center">
-                <div class="md:col-span-3 rounded-2xl overflow-hidden bg-black aspect-video shadow-lg">
-                    <iframe id="adventIframe" class="w-full h-full" src="about:blank" title="Kalendarz adwentowy COBONA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="md:col-span-2 mt-6 md:mt-0">
-                    <p class="text-xs uppercase tracking-widest text-brand-coral font-semibold mb-2" id="adventLabel"></p>
-                    <p class="text-3xl md:text-4xl font-semibold text-brand-green leading-tight mb-3" id="adventTitle"></p>
-                    <p class="text-gray-600 text-sm md:text-base leading-relaxed" id="adventDesc"></p>
-                </div>
-            </div>
-
-            <!-- 24 okienka -->
-            <div id="adventGrid" class="grid grid-cols-4 sm:grid-cols-6 gap-2 md:gap-4"></div>
-            <p class="text-center text-sm text-gray-500 mt-6" id="adventFoot"></p>
+                <span class="mt-6 md:mt-0 inline-flex items-center gap-2 bg-brand-coral text-white font-medium text-sm px-5 py-3 rounded-full flex-shrink-0">Otwórz kalendarz →</span>
+            </a>
         </div>
     </section>
 
@@ -630,99 +596,13 @@
             document.getElementById('forestDatesEmpty').classList.remove('hidden');
         }
 
-        // ===== Kalendarz adwentowy =====
-        // Sekcja widoczna od ADVENT_SHOW_FROM do ADVENT_SHOW_UNTIL (włącznie). Okienka otwierają się 1–24 grudnia.
-        // Podgląd innej daty: dopisz do adresu ?kalendarz=2026-12-08
+        // ===== Kalendarz adwentowy: karta z linkiem =====
+        // Cały kalendarz (filmiki, opisy, daty) jest w kalendarz/index.html. Tu tylko: kiedy pokazać kartę.
         const ADVENT_SHOW_FROM = '2026-11-20';
         const ADVENT_SHOW_UNTIL = '2027-01-06';
-        const ADVENT_YEAR = 2026;
-        // [dzień, tytuł, ID filmiku z YouTube (11 znaków z linku), krótki opis]
-        const ADVENT = [
-            [1, 'Zapuść korzenie 🌳', 'TAtk5FKNoSU', 'W dzisiejszej praktyce zapraszam Cię, żeby stanąć tak, jak jesteś. Korzystając z wyobrażenia drzewa, poczujemy mocną bazę, oparcie w ziemi, siłę, która zasila cały organizm. Jednocześnie — jak drzewo wyciągające się do słońca — poczujemy energię idącą ku górze, lekkość i przestrzeń. Połączymy w ciele oba kierunki: zakorzenienie i wzrastanie.'],
-            [2, 'Odetchnij 🌬️', 'lYEfYOCpFP4', 'W dzisiejszej praktyce sięgniemy do naszego podstawowego podpięcia do natury — do oddechu. Przez proste wdechy i wydechy będziemy przyjmować to, co nas odżywia, i oddawać to, co już nam niepotrzebne. Podepniemy do tego ruch — łagodne otwieranie i zamykanie — od pojedynczych części ciała aż po ciało jako całość.'],
-            [3, 'Odpłyń 🌊', 'Go3F0-TK-so', 'Dziś poddamy się sile wody — sile fal, które unoszą, kołyszą i odciążają ciało. Pozwolimy, by ruch stał się falisty i miękki: od delikatnych fal podmywających stopy, po pełne zanurzenie. Przez 15 minut daj sobie przestrzeń, by odpłynąć, puścić kontrolę i pozwolić ciału płynąć tam, gdzie chce.'],
-            [4, 'Ja, węgiel 👣', '6uefVIsiTXE', 'Dziś podepniemy się w ruchu pod pierwiastek, który jest jedną z podstaw życia — węgiel. W tej praktyce wyobrazimy sobie, że jesteśmy węglem. Każdy ruch zostawia wyraźny ślad — od stóp, przez biodra, po dłonie i całe ciało. Jakby ciało zaznaczało sobą przestrzeń i malowało dzieło, które po nas pozostanie.'],
-            [5, 'Zaokrąglij się 🍎', 'H8cTsmXjiJ0', 'W naturze wszystko zdaje się dążyć do okrągłości — do sfer, łuków, obłości. Tak samo jest z naszym ciałem: z okrągłymi panewkami stawów, kulą czaszki, miękkimi poduszkami stóp. Dzisiejsza praktyka to 15 minut zanurzenia w okrągłych gestach, w ruchu bez ostrych krawędzi — ruchu, który naoliwia ciało i daje mu przestrzeń na cały dzień.'],
-            [6, 'Moje DNA 🧬', 'M5IMpgSFWXI', 'Dziś podłączymy się do tego, co nas buduje od środka — do DNA, do spirali, w której zapisane są wszystkie informacje o każdej komórce naszego ciała. Zaproszę Cię do wejścia w ruch, który podąża za tą spiralnością: wzdłuż kręgosłupa, w linii rąk, w nogach, w całym ciele. Będziemy skręcać się i odkręcać, pozwalając ciału odnaleźć naturalne, spiralne ścieżki ruchu.'],
-            [7, 'Linie 🛤️', 'b0_xW42V2uE', 'Dziś zaproszę Cię do poszukiwania linii, które przebiegają przez Twoje ciało i je tworzą. Linii, które płyną przez kręgosłup, ręce, nogi… i nie kończą się na koniuszkach palców, ale biegną dalej — daleko w przestrzeń. Będziemy je odkrywać, wyciągać, wydłużać, a potem zmiękczać.'],
-            [8, 'Symetria / Asymetria 🍃', 'GzUhTfPUfhg', 'W naturze równolegle istnieją harmonia i różnorodność — widać to choćby w symetrii i asymetrii, które pięknie się uzupełniają. Dziś zaproszę Cię do poszukiwania symetrii i asymetrii w Twoim ciele i w ruchu. Poobserwujemy, które strony, gesty i kierunki są znajome i łatwe, a które wymagają większej uważności.'],
-            [9, 'Napięcie / Rozluźnienie 🕸️🪱', 'FHSJMQMWaQk', 'W naturze gęstość nie jest stała — woda może być lekką parą, płynną cieczą, a może też stać się twardym lodem. Nasze ciało działa podobnie. Dzisiejsza praktyka zaprasza Cię do doświadczania różnych gęstości, wchodzenia w napięcie i w rozluźnienie, i obserwowania, jak ciało odnajduje drogę pomiędzy jednym a drugim.'],
-            [10, 'Duże / Małe 🐋🐜', 'XZq6oGFf_MI', 'W naturze nie brakuje różnorodności rozmiarów — od organizmów widocznych tylko pod mikroskopem po rośliny i zwierzęta tak ogromne, że trudno objąć je wzrokiem. Dzisiejsza praktyka zaprasza Cię do podróży między mikrodetalami — ruchami bardziej odczuwanymi od środka niż widocznymi na zewnątrz — a dużym, rozłożystym ruchem, który otwiera i daje ciału oddech.'],
-            [11, 'Szybko / Wolno 🐎🐌', 'Kqa0n5IWYxY', 'W naturze rytm nigdy nie jest stały: czasem wszystko pędzi, a czasem zwalnia. Dzisiejsza praktyka zaprosi Cię do podróży między slow motion a ruchem bardzo szybkim. Znajdziemy też przestrzeń na zabawę — bo szybki ruch nie musi oznaczać stresu czy napięcia, może być lekki, radosny, spontaniczny.'],
-            [12, 'Ciężar / Lekkość 🐘🪶', 'dcHJES96WFI', 'Osadzenie w ziemi i lekkość unoszenia to dwie siły, które współistnieją w naturze. Nasze ciała również znają te jakości: ciężar, stabilność, moc płynącą z oparcia w ziemi — i lekkość, zwiewność. Dzisiejsza praktyka zaprasza Cię do podróży między uziemieniem a unoszeniem, między gęstością a przestrzenią.'],
-            [13, 'Zobacz siebie 👁️', 'UdzxPympXEc', 'Dziś zanurzymy się w zmyśle wzroku, ale skierujemy go nie na zewnątrz, lecz do środka. Będziemy obserwatorkami i obserwatorami własnego ruchu — z ciekawością, z łagodnością, z uważnością na szczegóły i niuanse. Ta praktyka zaprasza Cię do widzenia siebie „od środka”.'],
-            [14, 'Zobacz przestrzeń 🪐', '3bdFzPY8Hu4', 'Dziś przeniesiemy naszą uwagę z wnętrza ciała na zewnątrz — ku przestrzeni, która nas otacza. Najpierw zobaczymy to, co blisko: ściany, przedmioty, kolory, światło, faktury. Potem pozwolimy wzrokowi sięgnąć dalej — za okno, ku temu, co dalej i szerzej. Sprawdzimy, jak przestrzeń zmienia jakość ruchu.'],
-            [15, 'Poczuj dotyk 🤲', '4dBonQBVLrQ', 'Dziś zanurzymy się w zmysł dotyku. Zazwyczaj myślimy o dłoniach, ale dotykamy całym ciałem: stopy czują fakturę podłogi, twarz dotyka powietrza. Zobaczymy, jak odczuwanie całej powierzchni ciała może wywołać ruch, zmiękczyć go, pogłębić, otworzyć — i jak to jest tańczyć razem z podłogą, powietrzem, z całym światem, który nas dotyka.'],
-            [16, 'Usłysz ciałem 👂', '8FaUYGoqGhI', 'Dziś będziemy słuchać całym ciałem. Zaczniemy od dźwięków tuż obok nas, a potem przeniesiemy uwagę coraz dalej. Dźwięk to ruch — drgania, które docierają nie tylko do uszu, ale też do skóry, kości, tkanek. Poczujemy te wibracje i pozwolimy, by ciało reagowało na nie ruchem.'],
-            [17, 'Uziemienie 🌍', 'h7VG0SFc5n8', 'Do Świąt zostało już tylko 7 dni. Być może jesteś w biegu — w domykaniu spraw i wirze przygotowań. Dziś zaprośmy Ziemię, żeby zrobiła coś za nas: połóżmy się na niej i oddajmy jej ciężar ciała. Będziemy miękko spotykać się z podłożem. Bez wysiłku. Bez pośpiechu.'],
-            [18, 'Wyrastanie z gleby 🌱', 'sp6rzYegt84', 'Jak roślina wyrastająca wiosną z gleby, tak i my — po wczorajszym uziemieniu — zaczniemy kierować się ku górze. Im bardziej pozwalamy sobie opaść i osadzić się w podłożu, tym naturalniej pojawia się impuls do wznoszenia. Pozwól sobie rosnąć we własnym tempie. Z oparciem w ziemi.'],
-            [19, 'Zwierzęce ruchy 🐺', '-OUKyxQPfME', 'Dziś oderwiemy się od pionu i odnajdziemy się na czterech łapach — w pozycjach, które przychodzą nam naturalnie w dzieciństwie. Ta praktyka zaprosi Cię do zabawy i do obudzenia zwierzęcego instynktu: do poruszania się nisko nad ziemią, czujnie i uważnie. Ruch, który jest funkcjonalny, spontaniczny, żywy.'],
-            [20, 'Podróż dół–góra 🎢', 'eO7_-GnpWpo', 'Dziś połączymy wszystkie poziomy z ostatnich dni — od ściółki, przez runo i podszyt, aż po korony drzew. Będziemy sprawdzać, jak ciało może swobodnie przemieszczać się w górę i w dół, płynnie zmieniając pozycje, z uważnością. Dół i góra są częścią tej samej drogi.'],
-            [21, 'Obserwacje 📷', 'pq5QqD7Uv5M', 'Dziś zaczynamy mini-cykl trzech dni empatycznej komunikacji z ciałem, z narzędziami Porozumienia bez Przemocy. Na początek — obserwacje. Co czuje moje ciało w tym momencie? Gdzie pojawia się napięcie, a gdzie rozluźnienie? Bez oceniania. Jak zrobienie zdjęcia — uchwycenie stanu ciała w tej chwili.'],
-            [22, 'Emocje ❤️', '3f2wdlhRCYI', 'Drugi dzień mini-cyklu empatycznej komunikacji z ciałem. Dziś spotykamy się z emocjami. Samo słowo „emocja” pochodzi od łacińskiego e movere — „poruszać”. W tej praktyce będziemy zapraszać emocje do ruchu i pozwolimy im wybrzmieć w ciele. Bez tłumienia. Z ciekawością i uważnością.'],
-            [23, 'Potrzeby 🌹', 'k-9BWe2wUa8', 'Ostatni dzień mini-cyklu empatycznej komunikacji z ciałem. Dziś schodzimy poziom głębiej — do potrzeb. Emocje są jak lampki kontrolne: informują, że czegoś brakuje. Czego mi brakuje? Jaka potrzeba sprowadza mnie dziś na tę praktykę? Zobacz, jak tu i teraz możesz na nią odpowiedzieć.'],
-            [24, 'Świętowanie 🎉', 'UQYIJeNPrGQ', 'Finał Kalendarza adwentowego COBONA! Dziś świętujemy 24 dni ruchu — to w sumie ponad 6 godzin bycia w ciele! Dziś tańczymy. Skaczemy. Bujamy uśmiechniętą miednicą. Wyrażamy radość każdą komórką. Daj się ponieść tej energii 🌟']
-        ];
-        (function () {
-            const override = new URLSearchParams(location.search).get('kalendarz');
-            const day = /^\d{4}-\d{2}-\d{2}$/.test(override || '') ? override : today;
-            if (day < ADVENT_SHOW_FROM || day > ADVENT_SHOW_UNTIL) return;
+        if (today >= ADVENT_SHOW_FROM && today <= ADVENT_SHOW_UNTIL) {
             document.getElementById('advent').classList.remove('hidden');
-
-            const [y, m, d] = day.split('-').map(Number);
-            const decStart = `${ADVENT_YEAR}-12-01`;
-            const openUpTo = day < decStart ? 0 : (y === ADVENT_YEAR && m === 12 ? Math.min(d, 24) : 24);
-            const isAdvent = openUpTo > 0 && y === ADVENT_YEAR && m === 12 && d <= 24;
-            const $ = id => document.getElementById(id);
-
-            function show(n) {
-                const [, t, id, desc] = ADVENT[n - 1];
-                const isToday = isAdvent && n === openUpTo;
-                $('adventDone').classList.add('hidden');
-                $('adventPlayer').classList.remove('hidden');
-                $('adventPlayer').classList.add('md:grid');
-                $('adventIframe').src = id ? `https://www.youtube-nocookie.com/embed/${id}` : 'about:blank';
-                $('adventLabel').textContent = (isToday ? 'Dziś · ' : '') + n + ' grudnia';
-                $('adventTitle').textContent = `Dzień ${n}` + (t ? `. ${t}` : '');
-                $('adventDesc').textContent = desc || '';
-            }
-
-            if (openUpTo === 0) {
-                const left = Math.round((new Date(decStart + 'T12:00:00') - new Date(day + 'T12:00:00')) / 86400000);
-                $('adventTeaser').classList.replace('hidden', 'md:flex');
-                $('adventTeaser').classList.add('block');
-                $('adventCountdown').textContent = left;
-                $('adventCountdownWord').textContent = left === 1 ? 'dzień' : 'dni';
-                $('adventFoot').textContent = 'Okienka otwierają się po kolei, od 1 do 24 grudnia.';
-            } else if (isAdvent) {
-                show(openUpTo);
-                if (openUpTo < 24) $('adventIntro').classList.remove('hidden');
-                $('adventFoot').textContent = openUpTo < 24
-                    ? 'Kliknij otwarte okienko, żeby wrócić do wcześniejszej praktyki.'
-                    : 'Wszystkie okienka są otwarte – wracaj do praktyk, kiedy chcesz.';
-            } else {
-                $('adventDone').classList.remove('hidden');
-                $('adventFoot').textContent = 'Wszystkie okienka są otwarte – wracaj do praktyk, kiedy chcesz.';
-            }
-
-            ADVENT.forEach(([n, t, id]) => {
-                const el = document.createElement('button');
-                el.type = 'button';
-                if (n <= openUpTo) {
-                    el.className = 'aspect-square relative rounded-xl overflow-hidden bg-forest-700 text-white text-left img-zoom'
-                        + (isAdvent && n === openUpTo ? ' ring-4 ring-brand-coral' : '');
-                    el.innerHTML = (id ? `<img src="https://i.ytimg.com/vi/${id}/mqdefault.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="" loading="lazy">` : '')
-                        + `<span class="absolute inset-0 bg-gradient-to-t from-forest-950/80 to-transparent"></span>`
-                        + `<span class="relative flex flex-col justify-end h-full p-2 md:p-3"><span class="text-2xl md:text-3xl font-bold leading-none">${n}</span>`
-                        + `<span class="hidden md:block text-[11px] leading-tight mt-1 opacity-90">${t}</span></span>`;
-                    el.addEventListener('click', () => { show(n); $('adventPlayer').scrollIntoView({ behavior: 'smooth', block: 'center' }); });
-                } else {
-                    el.className = 'aspect-square rounded-xl bg-white border-2 border-dashed border-brand-green/30 text-brand-green/50 flex flex-col items-center justify-center cursor-default';
-                    el.innerHTML = `<span class="text-2xl md:text-3xl font-bold">${n}</span><span class="text-[10px] md:text-xs mt-1">${n} grudnia</span>`;
-                }
-                $('adventGrid').appendChild(el);
-            });
-        })();
+        }
     </script>
 </body>
 </html>
